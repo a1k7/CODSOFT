@@ -1,0 +1,54 @@
+#CALCULATOR
+import math
+while True:
+    
+    n2= input("Enter the operation: ")
+    n=n2.lower()
+    
+    if n == "quit" or n=="exit":
+        print("Exiting calculator. Goodbye!")
+        break  # This command exits the 'while True' loop
+
+    # --- Your calculator logic goes here, inside the loop ---
+    
+    # We put the number inputs in a 'try' block to catch errors
+    try:
+        num1 = float(input("Enter a number of your choice: "))
+        num2 = float(input("Enter a number of your choice: "))
+    except ValueError:
+        print("Invalid input. Please enter numbers only.")
+        print("--------------------") # Separator for readability
+        continue
+    
+   
+    if n=="add" or n=="addition":
+       addition=num1+num2
+       print(addition)
+    elif n=="subtraction" or n=="subtract":
+       if num1>num2:
+
+           subtraction=num1-num2
+           print(subtraction)
+       else:
+           subtraction=num2-num1
+           print(subtraction)
+    
+    elif n=="division" or n=="divide":
+        if num1!=0 and num2!=0:
+            division=num1/num2
+            print(division)
+    elif n=="multiplication" or n=="multiply":
+        mult=num1*num2
+        print(mult)
+    elif n=="percentage":
+        if num1<num2:
+            percent=(num1/num2)*100
+            print(percent)
+        else:
+            percent=(num2/num1)*100
+            print(percent)     
+    elif n=="square root":
+        sqr1=math.sqrt(num1)
+        print(f"square root for {num1} is : ",sqr1)
+        sqr2=math.sqrt(num2)
+        print(f"square root for {num2} is : ",sqr2)
