@@ -1,0 +1,16 @@
+def chatbot(user_input):
+    user_input=user_input.lower()
+    if user_input=="hi" or user_input=="hello":
+        return "Hello how may i help you?"
+    elif user_input=="how are you?":
+        return "I'm fine , how was your day?"
+    elif user_input=="bye":
+        return "Thank you. Hope we would meet again soon"
+    else:
+        return "Failed to understand.Retry!!!"
+while True:
+    user_action=input("you: ")
+    if user_action=="quit":
+        break
+    s1=chatbot(user_action)
+    print(f"chatBot response is: {s1}")
