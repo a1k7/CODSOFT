@@ -1,0 +1,54 @@
+mport random
+user_score = 0
+bot_score = 0
+print("========================================")
+print("  Welcome to Rock, Paper, Scissors!   ")
+print("========================================")
+print("Rules: Rock beats Scissors, Scissors beats Paper, Paper beats Rock.")
+print("We'll keep score. Type 'quit' at any time to exit.")
+print("----------------------------------------") 
+
+while True:
+    user_choice = input("Enter your choice (rock, paper, scissors) or 'quit': ").lower()
+    if user_choice == "quit":
+        print("\nThanks for playing! Let's see how you did...")
+        print(f"FINAL SCORE: You: {user_score} | Bot: {bot_score}")
+        if user_score > bot_score:
+            print(" You are the overall winner!")
+        elif bot_score > user_score:
+            print(" The bot was the overall winner!")
+        else:
+            print(" It was a perfect tie!")
+        print("========================================")
+        print("Goodbye!")
+        break  
+
+
+    if user_choice not in ["rock", "paper", "scissors"]:
+        
+        print(f"\nOops! '{user_choice}' isn't a valid option.")
+        print("Please make sure you type 'rock', 'paper', 'scissors', or 'quit'.")
+        print("----------------------------------------")
+        continue  
+
+    bot_choice = random.choice(["rock", "paper", "scissors"])
+    print(f"\n... You chose: {user_choice}")
+    print(f"... Bot chose: {bot_choice}")
+
+    if user_choice == bot_choice:
+        print("Result: It's a tie!")
+        
+    elif (user_choice == "rock" and bot_choice == "scissors") or \
+         (user_choice == "paper" and bot_choice == "rock") or \
+         (user_choice == "scissors" and bot_choice == "paper"):
+        print("Result: You win this round!")
+        user_score += 1
+        
+    else:
+        print("Result: The bot wins this round!")
+        bot_score += 1
+
+    print(f"\nCurrent Score: You: {user_score} | Bot: {bot_score}")
+    
+
+    print("----------------------------------------")
